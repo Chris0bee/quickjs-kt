@@ -51,7 +51,7 @@ int check_js_context_exception(JNIEnv *env, JSContext *context) {
     JSValue exception = JS_GetException(context);
     int tag = JS_VALUE_GET_TAG(exception);
     // Check exception
-    if (tag != JS_TAG_NULL && tag != JS_TAG_UNINITIALIZED) {
+    if (tag != JS_TAG_UNINITIALIZED) {
         char *message = NULL;
         js_error_to_string(context, exception, &message);
         // Free values
